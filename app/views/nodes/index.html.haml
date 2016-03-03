@@ -1,23 +1,23 @@
-%h1 Listing nodes
+.panel.panel-default
+  .panel-heading
+    %h1 Nodes
+    = link_to 'New Node', new_node_path, class: "btn btn-success"
+  .panel-body
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Address
+          %th Service Count
+          %th Last Reached
+          %th Actions
 
-%table
-  %thead
-    %tr
-      %th Address
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @nodes.each do |node|
-      %tr
-        %td= node.address
-        %td= node.user_id
-        %td= link_to 'Show', node
-        %td= link_to 'Edit', edit_node_path(node)
-        %td= link_to 'Destroy', node, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Node', new_node_path
+      %tbody
+        - @nodes.each do |node|
+          %tr
+            %td= node.address
+            %td= node.service_count
+            %td
+            %td
+              = link_to 'Show', node, class: "btn btn-default"
+              = link_to 'Edit', edit_node_path(node), class: "btn btn-default"
+              = link_to 'Remove', node, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"

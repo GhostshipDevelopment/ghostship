@@ -9,7 +9,7 @@
         = f.text_field :name
     #credentials.row
       .col-lg-12
-        %h1 Credentials
+        %h2 Credentials
         = f.fields_for :credentials do |cred_f|
           = render partial: "credentials/credential_fields", locals: {f: cred_f}
         .links

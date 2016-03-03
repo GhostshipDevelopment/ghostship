@@ -22,7 +22,7 @@ class NodesController < ApplicationController
 
   # POST /nodes
   def create
-    @node = Node.new(node_params)
+    @node = current_user.nodes.new(node_params)
 
     if @node.save
       redirect_to @node, notice: 'Node was successfully created.'
