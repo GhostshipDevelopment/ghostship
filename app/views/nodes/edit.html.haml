@@ -1,7 +1,11 @@
-%h1 Editing node
-
-= render 'form'
-
-= link_to 'Show', @node
-\|
-= link_to 'Back', nodes_path
+.row
+  .col-lg-12
+    = link_to 'Show', @node, class: "btn btn-default"
+    = link_to 'Back', nodes_path, class: "btn btn-default"
+.panel.panel-default
+  .panel-heading
+    %h1 Editing Node
+  .panel-body
+    .row
+      .col-lg-12
+        = render 'form'

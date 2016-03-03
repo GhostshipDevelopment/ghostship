@@ -1,17 +1,21 @@
-.row.nested-fields.service-field
-  .col-lg-12
+.panel.panel-default.nested-fields
+  .panel-heading
     %h2 Service
-    .row
+    = link_to_remove_association "Remove Service", f, class: "btn btn-danger"
+  .panel-body
+    .row.service-field
       .col-lg-12
-        = f.text_field :path
-    .row
-      .col-lg-12
-        = f.text_field :name
-    #credentials.row
-      .col-lg-12
-        %h2 Credentials
-        = f.fields_for :credentials do |cred_f|
-          = render partial: "credentials/credential_fields", locals: {f: cred_f}
-        .links
-          = link_to_add_association 'add credentials', f, :credentials, partial: "credentials/credential_fields"
-    = link_to_remove_association "remove service", f
+        .row
+          .col-lg-12
+            = f.text_field :path
+        .row
+          .col-lg-12
+            = f.text_field :name
+        #credentials.row
+          .col-lg-12
+            %hr
+            %h2 Credentials
+            = f.fields_for :credentials do |cred_f|
+              = render partial: "credentials/credential_fields", locals: {f: cred_f}
+            .links
+              = link_to_add_association 'Add Credential Set', f, :credentials, partial: "credentials/credential_fields", class: "btn btn-success"

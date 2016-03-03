@@ -14,7 +14,7 @@
       = f.fields_for :services do |f_service|
         = render partial: "services/service_fields", locals: {f: f_service}
       .links
-        = link_to_add_association 'add service', f, :services, partial: "services/service_fields"
+        = link_to_add_association 'Add Service', f, :services, partial: "services/service_fields", class: "btn btn-success"
   .row.actions
     .col-lg-12
       = f.submit 'Save'
