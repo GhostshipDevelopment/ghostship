@@ -37,24 +37,18 @@
         %a.navbar-brand{:href => "#"} Ghostship
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
-            %li= link_to "Services", "#"
-            %li= link_to "Nodes", "#"
+            - if user_signed_in?
+              %li= link_to "Nodes", nodes_path
+          %ul.nav.navbar-nav.pull-right
+            - if !user_signed_in?
+              %li= link_to "Sign In", new_user_session_path
+              %li= link_to "Sign Up", new_user_registration_path
+            - else
+              %li= link_to "Sign Out", destroy_user_session_path, method: :delete
     .container
       .row
-        .col-lg-9
+        .col-lg-12
           = bootstrap_flash
           = yield
-        .col-lg-3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link1", "/path1"
-              %li= link_to "Link2", "/path2"
-              %li= link_to "Link3", "/path3"
-          / /.well
-        / /span
-      / /row
       %footer
         %p © Company 2016
-    / /container

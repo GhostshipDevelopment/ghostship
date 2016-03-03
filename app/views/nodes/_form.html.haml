@@ -1,0 +1,20 @@
+= bootstrap_form_for @node do |f|
+  - if @node.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@node.errors.count, "error")} prohibited this node from being saved:"
+      %ul
+        - @node.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row
+    .col-lg-12
+      = f.text_field :address
+  #services.row
+    .col-lg-12
+      = f.fields_for :services do |f_service|
+        = render partial: "services/service_fields", locals: {f: f_service}
+      .links
+        = link_to_add_association 'add service', f, :services, partial: "services/service_fields"
+  .row.actions
+    .col-lg-12
+      = f.submit 'Save'

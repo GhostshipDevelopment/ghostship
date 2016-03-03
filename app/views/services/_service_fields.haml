@@ -1,0 +1,17 @@
+.row.nested-fields.service-field
+  .col-lg-12
+    %h2 Service
+    .row
+      .col-lg-12
+        = f.text_field :path
+    .row
+      .col-lg-12
+        = f.text_field :name
+    #credentials.row
+      .col-lg-12
+        %h1 Credentials
+        = f.fields_for :credentials do |cred_f|
+          = render partial: "credentials/credential_fields", locals: {f: cred_f}
+        .links
+          = link_to_add_association 'add credentials', f, :credentials, partial: "credentials/credential_fields"
+    = link_to_remove_association "remove service", f

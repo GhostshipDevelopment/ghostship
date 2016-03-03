@@ -7,8 +7,10 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+gem "bootstrap_form"
 gem "haml-rails"
 gem "devise"
+gem "cocoon"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
