@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root to: "pages#index"
-  resources :credentials
-  resources :services
   resources :nodes
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
