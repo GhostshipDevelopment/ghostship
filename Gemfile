@@ -11,6 +11,7 @@ gem "bootstrap_form"
 gem "haml-rails"
 gem "devise"
 gem "cocoon"
+gem "foreman"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
