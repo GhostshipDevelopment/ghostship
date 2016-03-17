@@ -1,15 +1,20 @@
-%p#notice= notice
-
-
-%p
-  %b Address:
-  = @node.address
-%p
-  %b User:
-  = @node.user_id
-
-
-
-= link_to 'Edit', edit_node_path(@node)
-\|
-= link_to 'Back', nodes_path
+.row
+  .panel.panel-default
+    .panel-heading
+      %h1
+        Node: 
+        = @node.address
+      = link_to 'Edit', edit_node_path(@node), class: "btn btn-success"
+    .panel-body
+      %h2 Services
+      %table.table.table-striped
+        %thead
+          %th Name
+          %th Path
+          %th Action
+        %tbody
+          - @node.services.each do |n_service|
+            %tr
+              %td= n_service.name
+              %td= n_service.path
+              %td= link_to "Visit", n_service.full_url, class: "btn btn-default"
